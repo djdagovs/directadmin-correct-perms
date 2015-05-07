@@ -72,6 +72,8 @@ for USER in ${USERS}; do
 			find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -exec chown -v ${USER}:${USER} {} \;
 		fi
 	done
+	# Blank line, always nice
+	echo ""
 done
 
 
