@@ -5,7 +5,7 @@ Because you might have done a migration from a non-suExec environment to ansuExe
 ## Usage
 ###Without parameters:
 ```bash
-./directadmin-correct-perms
+./directadmin-correct-perms.sh
 Only verbose output:
 =user=
 ==domain.tld==
@@ -21,7 +21,7 @@ find /home/user/domains/domain.tld/public_html ! -group user -ls
 ```
 ###With (random, be creative) parameters:
 ```bash
-./directadmin-correct-perms BOOYA
+./directadmin-correct-perms.sh BOOYA
 Actually change perms on files and directories:
 =user=
 ==domain.tld==
