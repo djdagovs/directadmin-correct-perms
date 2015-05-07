@@ -24,7 +24,7 @@ USERS=$(ls /usr/local/directadmin/data/users)
 for USER in ${USERS}; do
 	ECHOGREEN ${USER}
 	# List all virtualhosts for this user
-	DOMAINS="/usr/local/directadmin/data/users/${USER}/domains.list"
+	DOMAINS=$(cat /usr/local/directadmin/data/users/${USER}/domains.list)
 	for DOMAIN in ${DOMAINS}; do
 		ECHOYELLOW ${DOMAIN}
 	done
