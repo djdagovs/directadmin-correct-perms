@@ -37,11 +37,11 @@ USERS=$(ls /usr/local/directadmin/data/users)
 
 # Loop users and get domains
 for USER in ${USERS}; do
-	ECHOGREEN ${USER}
+	ECHOGREEN "=${USER}="
 	# List all virtualhosts for this user (just in case there are multiple virtualhosts per user)
 	DOMAINS=$(cat /usr/local/directadmin/data/users/${USER}/domains.list)
 	for DOMAIN in ${DOMAINS}; do
-		ECHOYELLOW ${DOMAIN}
+		ECHOYELLOW "==${DOMAIN}=="
 		if [[ -z ${EXEC} ]]; then
 			ECHORED "NOT EXECUTING"
 			# Find all files without perm 0644
