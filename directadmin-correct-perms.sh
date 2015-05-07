@@ -46,16 +46,16 @@ for USER in ${USERS}; do
 			ECHORED "NOT EXECUTING"
 			# Find all files without perm 0644
 			ECHOCYAN "All files without perm 0644"
-			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
+			ECHOFUCHSIA "find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls"
 			# Find all directories without perm 0755
 			ECHOCYAN "All directories without perm 0755"
-			find /home/${USER}/domains/${DOMAIN}/public_html -type d ! -perm 0755 -ls
+			ECHOFUCHSIA "find /home/${USER}/domains/${DOMAIN}/public_html -type d ! -perm 0755 -ls"
 			# Find all files of directories without correct owner
 			ECHOCYAN "All files of directories without correct owner"
-			find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls
+			ECHOFUCHSIA "find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls"
 			# Find all files of directories without correct group
 			ECHOCYAN "All files of directories without correct group"
-			find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -ls
+			ECHOFUCHSIA "find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -ls"
 		else
 			ECHOBLUE "EXECUTING"
 			# Find all files without perm 0644
