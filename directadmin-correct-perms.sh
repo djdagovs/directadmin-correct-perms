@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Fetch params
+EXEC=$1
+
 # Some generic functions
 ECHORED()       {
         echo -e "\e[1;31m${1}\e[0m"
@@ -27,12 +30,27 @@ for USER in ${USERS}; do
 	DOMAINS=$(cat /usr/local/directadmin/data/users/${USER}/domains.list)
 	for DOMAIN in ${DOMAINS}; do
 		ECHOYELLOW ${DOMAIN}
-		# Find all files without perm 0644
-		find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
-		# Find all directories without perm 0755
-		find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0755 -ls
-		# Find all files of directories without correct ownership
-		find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls
+		if [[ -z ${EXEC} ]]; then
+			ECHOGREEN "EXECUTING"
+#			# Find all files without perm 0644
+#			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
+#			# Find all directories without perm 0755
+#			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0755 -ls
+#			# Find all files of directories without correct ownership
+#			find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls
+#			# Find all files of directories without correct ownership
+#			find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -ls
+		else
+			ECHORED "NOT EXECUTING"
+#			# Find all files without perm 0644
+#			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
+#			# Find all directories without perm 0755
+#			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0755 -ls
+#			# Find all files of directories without correct ownership
+#			find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls
+#			# Find all files of directories without correct ownership
+#			find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -ls
+		fi
 	done
 done
 
