@@ -22,7 +22,7 @@ USERS=$(ls /usr/local/directadmin/data/users)
 
 # Loop users and get domains
 for USER in ${USERS}; do
-	echo ${USER}
+	ECHOGREEN ${USER}
 	# List all virtualhosts for this user
 	cat /usr/local/directadmin/data/users/${USER}/domains.list
 done
