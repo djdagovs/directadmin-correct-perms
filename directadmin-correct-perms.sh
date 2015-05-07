@@ -23,10 +23,16 @@ USERS=$(ls /usr/local/directadmin/data/users)
 # Loop users and get domains
 for USER in ${USERS}; do
 	ECHOGREEN ${USER}
-	# List all virtualhosts for this user
+	# List all virtualhosts for this user (just in case there are multiple virtualhosts per user)
 	DOMAINS=$(cat /usr/local/directadmin/data/users/${USER}/domains.list)
 	for DOMAIN in ${DOMAINS}; do
 		ECHOYELLOW ${DOMAIN}
+		# Find all files without perm 0644
+		find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
+		# Find all directories without perm 0755
+		find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0755 -ls
+		# Find all files of directories without correct ownership
+		find /home/${USER}/domains/${DOMAIN}/public_html ! -user ${USER} -ls
 	done
 done
 
