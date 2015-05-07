@@ -31,7 +31,7 @@ for USER in ${USERS}; do
 	for DOMAIN in ${DOMAINS}; do
 		ECHOYELLOW ${DOMAIN}
 		if [[ -z ${EXEC} ]]; then
-			ECHOGREEN "EXECUTING"
+			ECHORED "NOT EXECUTING"
 #			# Find all files without perm 0644
 #			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
 #			# Find all directories without perm 0755
@@ -41,7 +41,7 @@ for USER in ${USERS}; do
 #			# Find all files of directories without correct ownership
 #			find /home/${USER}/domains/${DOMAIN}/public_html ! -group ${USER} -ls
 		else
-			ECHORED "NOT EXECUTING"
+			ECHOBLUE "EXECUTING"
 #			# Find all files without perm 0644
 #			find /home/${USER}/domains/${DOMAIN}/public_html -type f ! -perm 0644 -ls
 #			# Find all directories without perm 0755
