@@ -3,7 +3,7 @@ This script is to correct all files and directories in the documentroots of all 
 ## Why?
 Because you might have done a migration from a non-suExec environment to ansuExec of PHP-FPM environment.
 ## Usage
-###Without parameters:
+###Without parameter:
 ```bash
 ./directadmin-correct-perms.sh
 Only verbose output:
@@ -19,7 +19,7 @@ find /home/user/domains/domain.tld/public_html ! -user user -ls
 All files of directories without correct group
 find /home/user/domains/domain.tld/public_html ! -group user -ls
 ```
-###With (random, be creative) parameters:
+###With (random, be creative) parameter:
 ```bash
 ./directadmin-correct-perms.sh BOOYA
 Actually change perms on files and directories:
